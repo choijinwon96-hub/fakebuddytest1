@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Buddies - Media Kit 2026 (KR)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Pretendard (Trendy, clean Korean font) & Outfit (Modern English font) -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B00; /* Vibrant Orange from logo */
+            --secondary: #FFAE00; /* Yellow-Orange from logo */
+            --dark: #1A1A1A;
+            --light: #F9FAFB;
+        }
+        body {
+            font-family: 'Pretendard Variable', 'Outfit', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            word-break: keep-all; /* Better Korean word breaking */
+            overflow-x: hidden;
+        }
+        /* Custom Utilities */
+        .text-primary { color: var(--primary); }
+        .bg-primary { background-color: var(--primary); }
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+        .section-padding { padding: 5rem 1rem; }
+        @media (min-width: 768px) {
+            .section-padding { padding: 8rem 2rem; }
+        }
+        
+        /* Enhanced premium card styles */
+        .card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+            border: 1px solid rgba(0, 0, 0, 0.02);
+        }
+        .card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 20px 40px -15px rgba(255, 107, 0, 0.12), 0 0 0 1px rgba(255, 107, 0, 0.05);
+            border-color: rgba(255, 107, 0, 0.15);
+        }
+
+        /* 3D Glass Hover for CTAs */
+        .btn-glow {
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .btn-glow:hover {
+            box-shadow: 0 15px 30px -5px rgba(255, 107, 0, 0.3);
+        }
+
+        /* High-Performance Scroll Reveal Framework */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .reveal-group .reveal-item {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+        .reveal-group .reveal-item.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Toast Animation Rules */
+        @keyframes toast-in {
+            0% { opacity: 0; transform: translate(-50%, 20px) scale(0.95); }
+            100% { opacity: 1; transform: translate(-50%, 0) scale(1); }
+        }
+        @keyframes toast-out {
+            0% { opacity: 1; transform: translate(-50%, 0) scale(1); }
+            100% { opacity: 0; transform: translate(-50%, -10px) scale(0.95); }
+        }
+        .toast-animate-in {
+            animation: toast-in 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .toast-animate-out {
+            animation: toast-out 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Premium Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F9FAFB;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E5E7EB;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF6B00;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-3">
+                    <span class="font-['Outfit'] font-extrabold text-2xl tracking-tighter text-black select-none cursor-default">FAKE BUDDIES</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-6 text-sm font-semibold">
+                    <a href="#about" class="text-gray-600 hover:text-primary transition-all duration-300 hover:scale-105">소개</a>
+                    <a href="#impact" class="text-gray-600 hover:text-primary transition-all duration-300 hover:scale-105">커뮤니티 파워</a>
+                    <a href="#audience" class="text-gray-600 hover:text-primary transition-all duration-300 hover:scale-105">오디언스</a>
+                    <a href="#partnerships" class="text-gray-600 hover:text-primary transition-all duration-300 hover:scale-105">파트너십</a>
+                    <a href="#contact" class="px-5 py-2.5 rounded-full bg-black text-white hover:bg-gray-800 hover:scale-105 hover:shadow-lg transition-all duration-300">협업 문의하기</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden flex flex-col items-center justify-center text-center px-4">
+        <!-- Ambient Background Glows -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-orange-200/20 blur-[120px] rounded-full pointer-events-none z-0"></div>
+        
+        <div class="max-w-4xl mx-auto z-10 relative reveal-group">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-orange-100 text-orange-600 font-bold text-sm tracking-wide mb-6 reveal-item select-none">
+                MEDIA KIT 2026
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight reveal-item">
+                서울 No.1<br>
+                <span class="gradient-text">글로벌 소셜 커뮤니티</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-600 mb-10 max-w-2xl mx-auto font-medium reveal-item">
+                2022년부터 서울을 기반으로, 내외국인 사이의 보이지 않는 벽을 허물고 진짜 친구가 되는 공간을 만듭니다.
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-4 text-sm font-semibold text-gray-500 reveal-item select-none">
+                <span class="px-4 py-2 bg-white rounded-lg shadow-sm border border-gray-100 hover:scale-105 hover:border-orange-200 hover:text-orange-600 transition-all duration-300 cursor-default">#서울</span>
+                <span class="px-4 py-2 bg-white rounded-lg shadow-sm border border-gray-100 hover:scale-105 hover:border-orange-200 hover:text-orange-600 transition-all duration-300 cursor-default">#홍대</span>
+                <span class="px-4 py-2 bg-white rounded-lg shadow-sm border border-gray-100 hover:scale-105 hover:border-orange-200 hover:text-orange-600 transition-all duration-300 cursor-default">#ExpatLife</span>
+                <span class="px-4 py-2 bg-white rounded-lg shadow-sm border border-gray-100 hover:scale-105 hover:border-orange-200 hover:text-orange-600 transition-all duration-300 cursor-default">#한국문화</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Key Stats Section (Numbers) -->
+    <section id="impact" class="py-12 bg-black text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-gray-800 reveal-group">
+                <div class="p-4 reveal-item">
+                    <p class="text-4xl md:text-5xl font-['Outfit'] font-extrabold text-primary mb-2 counter-value">2,000+</p>
+                    <p class="text-sm md:text-base font-medium text-gray-400">활성 멤버</p>
+                </div>
+                <div class="p-4 reveal-item">
+                    <p class="text-4xl md:text-5xl font-['Outfit'] font-extrabold text-primary mb-2 counter-value">800+</p>
+                    <p class="text-sm md:text-base font-medium text-gray-400">누적 오프라인 이벤트</p>
+                </div>
+                <div class="p-4 reveal-item">
+                    <p class="text-4xl md:text-5xl font-['Outfit'] font-extrabold text-primary mb-2 counter-value">30+</p>
+                    <p class="text-sm md:text-base font-medium text-gray-400">참여 국가</p>
+                </div>
+                <div class="p-4 reveal-item">
+                    <p class="text-4xl md:text-5xl font-['Outfit'] font-extrabold text-primary mb-2 counter-value">₩0</p>
+                    <p class="text-sm md:text-base font-medium text-gray-400">광고비 (100% 오가닉 성장)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who We Are Section -->
+    <section id="about" class="section-padding bg-white">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-16 items-center reveal-group">
+                <div class="reveal-item">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">우리는 누구인가요?<br><span class="text-gray-400 text-2xl md:text-3xl block mt-2 font-medium">단순한 모임 그 이상의 커뮤니티</span></h2>
+                    <div class="space-y-6 text-lg text-gray-600">
+                        <p>
+                            우리는 단순한 질문에서 시작했습니다: <strong>"낯선 사람들이 진짜 친구가 될 수 있을까?"</strong>
+                        </p>
+                        <p>
+                            2022년 홍대에서 시작된 Fake Buddies는 단순한 비즈니스가 아닙니다. 한국인과 외국인 사이의 장벽을 허물고자 하는 진심에서 출발했습니다.
+                        </p>
+                        <p>
+                            800번이 넘는 오프라인 모임을 통해 30개국 이상에서 온 사람들을 환영했고, 언어 교환과 문화를 나누며 '가짜(Fake)' 친구가 '진짜(Real)' 친구로 변하는 커뮤니티를 구축했습니다.
+                        </p>
+                        <blockquote class="border-l-4 border-primary pl-4 py-2 mt-8 italic font-semibold text-gray-800 text-xl hover:translate-x-2 transition-transform duration-350">
+                            "처음엔 우리 모두 그저 낯선 사람이잖아요."
+                            <span class="block text-sm font-normal text-gray-500 mt-2 not-italic">— Fake Buddies 모토</span>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100 reveal-item shadow-sm hover:shadow-md transition-all duration-300">
+                    <h3 class="text-xl font-bold mb-6 pb-4 border-b border-gray-200">우리의 미션</h3>
+                    <ul class="space-y-6">
+                        <li class="flex gap-4 group/mission transition-all duration-300 hover:translate-x-2">
+                            <span class="text-2xl group-hover/mission:scale-125 transition-transform duration-300">🤝</span>
+                            <div>
+                                <h4 class="font-bold text-gray-900 group-hover/mission:text-primary transition-colors">다름을 포용하는 공간</h4>
+                                <p class="text-gray-600 text-sm mt-1">내외국인이 어우러져 서로의 문화를 이해하고 연결됩니다.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4 group/mission transition-all duration-300 hover:translate-x-2">
+                            <span class="text-2xl group-hover/mission:scale-125 transition-transform duration-300">🎉</span>
+                            <div>
+                                <h4 class="font-bold text-gray-900 group-hover/mission:text-primary transition-colors">가장 솔직한 즐거움</h4>
+                                <p class="text-gray-600 text-sm mt-1">조금 오글거리게 들릴지 몰라도, 우리의 궁극적인 목표는 함께 모여 진심으로 신나게 노는 것입니다.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4 group/mission transition-all duration-300 hover:translate-x-2">
+                            <span class="text-2xl group-hover/mission:scale-125 transition-transform duration-300">📍</span>
+                            <div>
+                                <h4 class="font-bold text-gray-900 group-hover/mission:text-primary transition-colors">서울 트렌드의 중심</h4>
+                                <p class="text-gray-600 text-sm mt-1">홍대와 신촌을 기반으로 매주 4회 이상 다채로운 오프라인 이벤트를 개최합니다.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audience Profile -->
+    <section id="audience" class="section-padding bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">어떤 사람들이 모이나요?</h2>
+                <p class="text-xl text-gray-600">다양성과 에너지가 넘치는 우리의 멤버들</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 reveal-group">
+                <!-- Card 1 -->
+                <div class="card p-8 reveal-item group/card">
+                    <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-primary text-2xl mb-6 group-hover/card:scale-110 group-hover/card:bg-orange-200 transition-all duration-300">🌎</div>
+                    <h3 class="text-lg font-bold mb-2 group-hover/card:text-primary transition-colors">국적 (30+ 개국)</h3>
+                    <p class="text-gray-600 text-sm">미국, 영국, 캐나다, 호주, 프랑스, 독일 등 전 세계 각지에서 모입니다.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="card p-8 reveal-item group/card">
+                    <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-primary text-2xl mb-6 group-hover/card:scale-110 group-hover/card:bg-orange-200 transition-all duration-300">🎓</div>
+                    <h3 class="text-lg font-bold mb-2 group-hover/card:text-primary transition-colors">백그라운드</h3>
+                    <p class="text-gray-600 text-sm">교환학생, 직장인, 주재원, 여행자 등 다양한 배경을 가졌습니다.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="card p-8 reveal-item group/card">
+                    <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-primary text-2xl mb-6 group-hover/card:scale-110 group-hover/card:bg-orange-200 transition-all duration-300">📱</div>
+                    <h3 class="text-lg font-bold mb-2 group-hover/card:text-primary transition-colors">핵심 연령대</h3>
+                    <p class="text-gray-600 text-sm">가장 활동적인 22세에서 38세 사이의 MZ세대가 주축입니다.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="card p-8 reveal-item group/card">
+                    <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-primary text-2xl mb-6 group-hover/card:scale-110 group-hover/card:bg-orange-200 transition-all duration-300">🗓️</div>
+                    <h3 class="text-lg font-bold mb-2 group-hover/card:text-primary transition-colors">체류 기간</h3>
+                    <p class="text-gray-600 text-sm">단기 교환학생부터 장기 거주 외국인까지 다양하게 활동합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do -->
+    <section class="section-padding bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+             <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">매주 펼쳐지는 즐거움</h2>
+                <p class="text-xl text-gray-600">실내외를 가리지 않는 매주 4개의 다채로운 이벤트</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 reveal-group">
+                <div class="group relative overflow-hidden rounded-2xl bg-gray-100 aspect-square flex flex-col justify-end p-6 reveal-item transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
+                    <!-- Placeholder for image background, using solid color for now -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent z-10"></div>
+                    <div class="relative z-20 text-white">
+                        <span class="text-3xl mb-3 block group-hover:scale-110 origin-left transition-transform duration-300">🍜</span>
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">푸드 & 다이닝</h3>
+                        <p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">로컬 맛집 탐방, 한국 요리 클래스, 그룹 디너를 통해 서울의 미식을 경험합니다.</p>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl bg-gray-100 aspect-square flex flex-col justify-end p-6 reveal-item transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent z-10"></div>
+                    <div class="relative z-20 text-white">
+                        <span class="text-3xl mb-3 block group-hover:scale-110 origin-left transition-transform duration-300">🏔️</span>
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">아웃도어 액티비티</h3>
+                        <p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">북한산 하이킹, 한강 피크닉, 남산 산책 등 새로운 시선으로 서울을 즐깁니다.</p>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl bg-gray-100 aspect-square flex flex-col justify-end p-6 reveal-item transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent z-10"></div>
+                    <div class="relative z-20 text-white">
+                        <span class="text-3xl mb-3 block group-hover:scale-110 origin-left transition-transform duration-300">🎉</span>
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">파티 & 나이트라이프</h3>
+                        <p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">사일런트 디스코, 클럽 파티, 바 크롤링. 멋진 사람들과 함께하는 서울의 밤.</p>
+                    </div>
+                </div>
+                
+                <div class="group relative overflow-hidden rounded-2xl bg-gray-100 aspect-square flex flex-col justify-end p-6 reveal-item transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent z-10"></div>
+                    <div class="relative z-20 text-white">
+                        <span class="text-3xl mb-3 block group-hover:scale-110 origin-left transition-transform duration-300">🎲</span>
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">보드게임 나잇</h3>
+                        <p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">파트너 베뉴에서 진행되는 주간 보드게임. 새 멤버들을 위한 완벽한 아이스브레이킹.</p>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl bg-gray-100 aspect-square flex flex-col justify-end p-6 reveal-item transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent z-10"></div>
+                    <div class="relative z-20 text-white">
+                        <span class="text-3xl mb-3 block group-hover:scale-110 origin-left transition-transform duration-300">🎤</span>
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">토크 & 디베이트</h3>
+                        <p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">자기계발 세션, 언어 교환, 심도 깊은 그룹 토론으로 인사이트를 나눕니다.</p>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-2xl bg-gray-100 aspect-square flex flex-col justify-end p-6 reveal-item transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent z-10"></div>
+                    <div class="relative z-20 text-white">
+                        <span class="text-3xl mb-3 block group-hover:scale-110 origin-left transition-transform duration-300">🇰🇷</span>
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">한국 문화 체험</h3>
+                        <p class="text-sm text-gray-300 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">K-Pop 댄스, 템플스테이, 도예, 서예 등 외국인을 위해 큐레이션된 찐 한국 체험.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Feature Section -->
+    <section class="py-16 bg-black text-white relative overflow-hidden">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <h2 class="text-sm font-bold tracking-widest uppercase text-gray-400 mb-8 reveal">As Seen In (글로벌 미디어가 주목한 커뮤니티)</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center reveal-group">
+                <div class="p-8 border border-gray-800 rounded-2xl bg-gray-900/50 hover:bg-gray-900 transition-all duration-300 hover:-translate-y-1.5 hover:border-red-600/30 hover:shadow-[0_0_30px_rgba(229,9,20,0.15)] reveal-item group/netflix">
+                    <h3 class="text-3xl font-bold text-red-600 mb-4 font-['Outfit'] group-hover/netflix:scale-105 origin-center transition-transform duration-300 select-none">NETFLIX</h3>
+                    <h4 class="text-xl font-bold mb-3">동미새 (Foreigners Who Got Lost in Korea)</h4>
+                    <p class="text-gray-400 text-sm">한국의 일상을 경험하는 외국인들의 넷플릭스 오리지널 다큐멘터리에 Fake Buddies 멤버들이 출연했습니다. 유가 광고가 아닌, 커뮤니티의 자연스러운 화제성으로 제작진이 먼저 찾아왔습니다.</p>
+                </div>
+                <div class="p-8 border border-gray-800 rounded-2xl bg-gray-900/50 hover:bg-gray-900 transition-all duration-300 hover:-translate-y-1.5 hover:border-white/30 hover:shadow-[0_0_30px_rgba(255,255,255,0.08)] reveal-item group/arirang">
+                    <h3 class="text-3xl font-bold text-white mb-4 font-['Outfit'] group-hover/arirang:scale-105 origin-center transition-transform duration-300 select-none">Arirang TV</h3>
+                    <h4 class="text-xl font-bold mb-3">K-FOOD CLASS</h4>
+                    <p class="text-gray-400 text-sm">전 세계로 송출되는 아리랑 TV의 한식 프로그램에 게스트로 참여했습니다. 한국 문화에 대한 외국인들의 진솔하고 긍정적인 시각을 글로벌 시청자들에게 전달했습니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Partner With Us / Partnerships -->
+    <section id="partnerships" class="section-padding bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+             <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">왜 Fake Buddies와 함께해야 할까요?</h2>
+                <p class="text-xl text-gray-600">브랜드와 글로벌 타겟을 연결하는 가장 확실한 방법</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-16 reveal-group">
+                <div class="bg-white p-6 rounded-xl shadow-sm reveal-item transition-all duration-300 hover:-translate-y-1.5 hover:shadow-md hover:border-orange-500/20 border border-transparent">
+                    <div class="text-primary font-bold text-lg mb-2">🎯 도달하기 어려운 타겟 확보</div>
+                    <p class="text-gray-600 text-sm">국내에서 대규모로 타겟팅하기 매우 까다로운 서구권(미, 영, 캐, 호, 유럽) 인력을 확실하게 보유하고 있습니다.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm reveal-item transition-all duration-300 hover:-translate-y-1.5 hover:shadow-md hover:border-orange-500/20 border border-transparent">
+                    <div class="text-primary font-bold text-lg mb-2">🤝 강력한 신뢰 기반</div>
+                    <p class="text-gray-600 text-sm">멤버들은 커뮤니티를 신뢰합니다. Fake Buddies를 통한 브랜드 소개는 억지스럽지 않고 자연스럽게 수용됩니다.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm reveal-item transition-all duration-300 hover:-translate-y-1.5 hover:shadow-md hover:border-orange-500/20 border border-transparent">
+                    <div class="text-primary font-bold text-lg mb-2">🏆 압도적인 서울 No.1</div>
+                    <p class="text-gray-600 text-sm">매주 4회의 오프라인 이벤트를 꾸준히 개최하는, 가장 많고 다양한 멤버를 보유한 독보적인 커뮤니티입니다.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-8 md:p-12 border border-gray-100 shadow-lg reveal">
+                <h3 class="text-2xl font-bold mb-8 text-center">파트너십 기회 (How we can work together)</h3>
+                <div class="grid md:grid-cols-2 gap-x-12 gap-y-8 reveal-group">
+                    <div class="reveal-item transition-all duration-300 hover:translate-x-1 group/opt">
+                        <h4 class="font-bold text-lg mb-2 flex items-center gap-2 group-hover/opt:text-primary transition-colors"><span class="text-primary">01.</span> 이벤트 스폰서십</h4>
+                        <p class="text-gray-600 text-sm">오프라인 이벤트에서 제품 샘플링, 배너 노출, 체험형 프로모션 등 오가닉한 참여 유도</p>
+                    </div>
+                    <div class="reveal-item transition-all duration-300 hover:translate-x-1 group/opt">
+                        <h4 class="font-bold text-lg mb-2 flex items-center gap-2 group-hover/opt:text-primary transition-colors"><span class="text-primary">02.</span> 콘텐츠 & 크리에이터 협업</h4>
+                        <p class="text-gray-600 text-sm">영어권 크리에이터 멤버들과 함께 진정성 있는 한국 라이프스타일 릴스 및 콘텐츠 캠페인 전개</p>
+                    </div>
+                    <div class="reveal-item transition-all duration-300 hover:translate-x-1 group/opt">
+                        <h4 class="font-bold text-lg mb-2 flex items-center gap-2 group-hover/opt:text-primary transition-colors"><span class="text-primary">03.</span> 필수 서비스 통합 마케팅</h4>
+                        <p class="text-gray-600 text-sm">카드, 보험, 주거, 송금 등 국내 거주 외국인에게 꼭 필요한 실생활 서비스를 직접 소개</p>
+                    </div>
+                    <div class="reveal-item transition-all duration-300 hover:translate-x-1 group/opt">
+                        <h4 class="font-bold text-lg mb-2 flex items-center gap-2 group-hover/opt:text-primary transition-colors"><span class="text-primary">04.</span> 기업 B2B 프로그램</h4>
+                        <p class="text-gray-600 text-sm">기업 내 외국인 임직원을 위한 온보딩, 팀빌딩 이벤트, 맞춤형 한국 문화 몰입 패키지 기획</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center reveal-group">
+                <h4 class="text-sm font-bold tracking-widest uppercase text-gray-400 mb-6 reveal-item select-none">Past Collaborations</h4>
+                <p class="text-gray-600 font-medium mb-6 reveal-item">이 모든 협업은 유가 광고 없이 커뮤니티의 힘만으로 이루어졌습니다.</p>
+                <div class="flex flex-wrap justify-center gap-4 text-sm font-bold text-gray-500 reveal-item select-none">
+                    <span class="px-5 py-3 bg-white rounded-xl shadow-sm hover:scale-105 hover:shadow-md hover:text-primary hover:border-orange-500/20 border border-transparent transition-all duration-300 cursor-default">Lexus Korea</span>
+                    <span class="px-5 py-3 bg-white rounded-xl shadow-sm hover:scale-105 hover:shadow-md hover:text-primary hover:border-orange-500/20 border border-transparent transition-all duration-300 cursor-default">연세대 글로벌학생회</span>
+                    <span class="px-5 py-3 bg-white rounded-xl shadow-sm hover:scale-105 hover:shadow-md hover:text-primary hover:border-orange-500/20 border border-transparent transition-all duration-300 cursor-default">Shared Homies</span>
+                    <span class="px-5 py-3 bg-white rounded-xl shadow-sm hover:scale-105 hover:shadow-md hover:text-primary hover:border-orange-500/20 border border-transparent transition-all duration-300 cursor-default">Silent Disco Korea</span>
+                    <span class="px-5 py-3 bg-white rounded-xl shadow-sm hover:scale-105 hover:shadow-md hover:text-primary hover:border-orange-500/20 border border-transparent transition-all duration-300 cursor-default">Local F&B & Venues</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section-padding bg-white">
+         <div class="max-w-5xl mx-auto px-4">
+             <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl font-bold mb-4">멤버들의 진짜 이야기</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6 reveal-group">
+                <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 relative reveal-item transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg hover:border-orange-500/20">
+                    <div class="text-primary text-4xl absolute -top-4 left-6 opacity-20 select-none">"</div>
+                    <p class="text-gray-700 italic mb-4 relative z-10">"아는 사람 한 명 없이 서울에 왔어요. Fake Buddies가 모든 걸 바꿔놓았죠. 여기서 제 최고의 친구들을 만났습니다."</p>
+                    <div class="font-bold text-sm">🇺🇸 Sarah M. (미국)</div>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 relative reveal-item transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg hover:border-orange-500/20">
+                    <div class="text-primary text-4xl absolute -top-4 left-6 opacity-20 select-none">"</div>
+                    <p class="text-gray-700 italic mb-4 relative z-10">"한국에서 내린 최고의 결정입니다. 가벼운 네트워킹이 아니라 진짜 깊은 관계를 맺을 수 있어요."</p>
+                    <div class="font-bold text-sm">🇫🇷 Thomas B. (프랑스)</div>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 relative reveal-item transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg hover:border-orange-500/20">
+                    <div class="text-primary text-4xl absolute -top-4 left-6 opacity-20 select-none">"</div>
+                    <p class="text-gray-700 italic mb-4 relative z-10">"브랜드 파트너로서 함께 일해봤는데, 단순한 디지털 광고에서는 볼 수 없었던 엄청난 오프라인 인게이지먼트를 경험했습니다."</p>
+                    <div class="font-bold text-sm">🏢 서울 소재 마케팅 파트너</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action / Contact -->
+    <section id="contact" class="py-24 gradient-bg text-white text-center px-4 relative overflow-hidden">
+        <!-- Ambient decorative shapes inside CTA -->
+        <div class="absolute -top-12 -left-12 w-64 h-64 rounded-full bg-white/5 blur-2xl pointer-events-none"></div>
+        <div class="absolute -bottom-12 -right-12 w-64 h-64 rounded-full bg-black/10 blur-2xl pointer-events-none"></div>
+
+        <div class="max-w-3xl mx-auto reveal-group">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 reveal-item">우리와 함께 새로운 문화를 만들어볼까요?</h2>
+            <p class="text-xl mb-12 text-white/90 reveal-item">서울에서 가장 활동적인 글로벌 커뮤니티에 도달할 준비가 되셨다면, 언제든 연락주세요.</p>
+            
+            <div class="flex flex-col md:flex-row justify-center gap-6 mb-12 reveal-item">
+                <a href="mailto:contactus@fakebuddies.com" id="email-cta" class="flex items-center justify-center gap-3 bg-white text-primary px-8 py-4 rounded-full font-bold transition transform hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-orange-500/20 duration-300 btn-glow">
+                    <span>📧</span> contactus@fakebuddies.com
+                </a>
+                <a href="https://www.instagram.com/fake.buddies" target="_blank" class="flex items-center justify-center gap-3 bg-black text-white px-8 py-4 rounded-full font-bold transition transform hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-black/20 duration-300">
+                    <span>📸</span> Instagram @fake.buddies
+                </a>
+            </div>
+            <p class="text-sm font-medium text-white/80 reveal-item">
+                카카오톡 문의: <strong>Edgar (Co-founder)</strong> | Web: www.fakebuddies.com
+            </p>
+        </div>
+    </section>
+
+    <footer class="bg-black py-8 text-center border-t border-gray-800">
+        <p class="text-gray-500 text-sm font-['Outfit'] select-none">&copy; 2026 Fake Buddies. All rights reserved.</p>
+    </footer>
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 pointer-events-none flex flex-col gap-2"></div>
+
+    <!-- Scripts for Premium Interactive Features -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. Dynamic Numeric Count Up Animation
+            function animateCounter(element) {
+                const targetText = element.textContent.trim();
+                // Extrct potential prefix (e.g. ₩), number digits (e.g. 2,000), and suffix (e.g. +)
+                const match = targetText.match(/^([^\d]*)([\d,]+)([^\d]*)$/);
+                if (!match) return;
+                
+                const prefix = match[1];
+                const rawNumber = match[2].replace(/,/g, '');
+                const suffix = match[3];
+                const targetVal = parseInt(rawNumber, 10);
+                
+                if (isNaN(targetVal)) return;
+                
+                // For a number of 0, animate instantly or very briefly
+                if (targetVal === 0) {
+                    element.textContent = targetText;
+                    return;
+                }
+                
+                const duration = 2000; // 2 seconds animation
+                const startTime = performance.now();
+                
+                function update(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    
+                    // Easing formula: cubic-bezier easeOutExpo (highly responsive start, smooth deceleration)
+                    const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+                    const currentVal = Math.floor(easeProgress * targetVal);
+                    
+                    // Format integer with local thousands comma separator
+                    element.textContent = prefix + currentVal.toLocaleString() + suffix;
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    } else {
+                        element.textContent = targetText; // Match design output exact characters
+                    }
+                }
+                requestAnimationFrame(update);
+            }
+
+            // 2. High-Performance Scroll Reveal IntersectionObserver
+            const revealCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        
+                        if (target.classList.contains('reveal-group')) {
+                            // Stagger logic for children elements
+                            const items = target.querySelectorAll('.reveal-item');
+                            items.forEach((item, index) => {
+                                setTimeout(() => {
+                                    item.classList.add('active');
+                                    // Trigger counter animation if active child contains one
+                                    const counters = item.querySelectorAll('.counter-value');
+                                    counters.forEach(counter => {
+                                        if (!counter.classList.contains('counted')) {
+                                            counter.classList.add('counted');
+                                            animateCounter(counter);
+                                        }
+                                    });
+                                }, index * 100); // 100ms precise stagger step delay
+                            });
+                        } else {
+                            target.classList.add('active');
+                            // Trigger counter animation if reveal element contains one
+                            const counters = target.querySelectorAll('.counter-value');
+                            counters.forEach(counter => {
+                                if (!counter.classList.contains('counted')) {
+                                    counter.classList.add('counted');
+                                    animateCounter(counter);
+                                }
+                            });
+                        }
+                        
+                        // Stop observing once active to optimize performance
+                        observer.unobserve(target);
+                    }
+                });
+            };
+            
+            // Set threshold and negative margin to trigger slightly before element is completely in viewport
+            const revealObserver = new IntersectionObserver(revealCallback, {
+                root: null,
+                threshold: 0.05,
+                rootMargin: '0px 0px -40px 0px'
+            });
+            
+            // Register all scroll reveal targets
+            document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+            document.querySelectorAll('.reveal-group').forEach(el => revealObserver.observe(el));
+
+            // 3. Custom Glassmorphic Toast Notification & Clipboard Copying
+            const emailCta = document.getElementById('email-cta');
+            const toastContainer = document.getElementById('toast-container');
+            
+            function triggerToast(message) {
+                // Clear out existing toasts for better spam tolerance
+                toastContainer.innerHTML = '';
+                
+                const toast = document.createElement('div');
+                // Use blur backdrop, orange accent details, and bold typography matching Outfitters/Pretendard
+                toast.className = "px-6 py-3.5 bg-black/90 text-white rounded-full shadow-2xl backdrop-blur-md border border-white/10 flex items-center gap-3 pointer-events-auto text-sm font-semibold select-none toast-animate-in";
+                toast.innerHTML = `
+                    <span class="flex h-2 w-2 relative">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
+                    </span>
+                    <span>${message}</span>
+                `;
+                
+                toastContainer.appendChild(toast);
+                
+                // Clear after 3 seconds with fading exit transition
+                setTimeout(() => {
+                    toast.classList.remove('toast-animate-in');
+                    toast.classList.add('toast-animate-out');
+                    setTimeout(() => {
+                        toast.remove();
+                    }, 300);
+                }, 2800);
+            }
+            
+            if (emailCta) {
+                emailCta.addEventListener('click', (e) => {
+                    e.preventDefault(); // Intercept system mail app opening
+                    
+                    const email = 'contactus@fakebuddies.com';
+                    
+                    // Clipboard API
+                    navigator.clipboard.writeText(email).then(() => {
+                        triggerToast('이메일 주소가 클립보드에 복사되었습니다! 🍊');
+                    }).catch(err => {
+                        // Fallback in case permission is blocked
+                        const textArea = document.createElement('textarea');
+                        textArea.value = email;
+                        textArea.style.position = 'fixed';
+                        document.body.appendChild(textArea);
+                        textArea.focus();
+                        textArea.select();
+                        try {
+                            document.execCommand('copy');
+                            triggerToast('이메일 주소가 클립보드에 복사되었습니다! 🍊');
+                        } catch (err) {
+                            console.error('Copy fallback failed', err);
+                        }
+                        document.body.removeChild(textArea);
+                    });
+                });
+            }
+
+            // 4. Clean Header shrink animation on scroll
+            const nav = document.querySelector('nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    nav.classList.add('py-1', 'shadow-md', 'bg-white/95');
+                    nav.classList.remove('bg-white/90');
+                } else {
+                    nav.classList.remove('py-1', 'shadow-md', 'bg-white/95');
+                    nav.classList.add('bg-white/90');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
